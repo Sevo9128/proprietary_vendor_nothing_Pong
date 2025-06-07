@@ -5,6 +5,7 @@
 soong_namespace {
     imports: [
         "device/nothing/Pong",
+        "frameworks/av/camera",
         "hardware/qcom-caf/sm8450",
         "hardware/qcom-caf/wlan",
         "vendor/qcom/opensource/commonsys/display",
@@ -70,6 +71,48 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "camera.device@1.0-impl",
+	owner: "nothing",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: [
+                "proprietary/vendor/lib64/camera.device@1.0-impl.so"
+            ],
+			shared_libs: [
+                "libhidlbase",
+                "libhidlmemory",
+                "libutils",
+                "android.hardware.camera.device@1.0",
+                "vendor.qti.hardware.camera.device@1.0",
+                "android.hardware.camera.common@1.0",
+                "android.hardware.graphics.allocator@2.0",
+                "android.hardware.graphics.mapper@2.0",
+                "android.hardware.graphics.mapper@3.0",
+                "android.hardware.graphics.mapper@4.0",
+                "android.hardware.graphics.common@1.0",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libcutils",
+                "liblog",
+                "libgralloctypes",
+                "libhardware",
+                "libcamera_metadata",
+                "libc++",
+                "libc",
+                "libm", 
+                "libdl",
+            ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -14472,6 +14515,85 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "libjni_aidenoiserutilv2",
+	owner: "nothing",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: [
+                "proprietary/vendor/lib64/libjni_aidenoiserutilv2.so"
+            ],
+			shared_libs: [
+                "libaidenoiserv2",
+                "liblog",
+                "libcutils",
+                "libopencv",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl", 
+            ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libjni_imageutil",
+	owner: "nothing",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: [
+                "proprietary/vendor/lib64/libjni_imageutil.so"
+            ],
+			shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libjni_stfaceunlock_api",
+	owner: "nothing",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: [
+                "proprietary/vendor/lib64/libjni_stfaceunlock_api.so"
+            ],
+			shared_libs: [
+                "libstfaceunlockppl",
+                "liblog",
+                "libm",
+                "libdl",
+                "libc", 
+            ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libjnihelper",
     owner: "nothing",
     strip: {
@@ -21852,6 +21974,30 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libstfaceunlockppl",
+    owner: "nothing",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libstfaceunlockppl.so"
+            ],
+            shared_libs: [
+                "liblog",
+                "libm",
+                "libc",
+                "libdl", 
             ],
         },
     },
@@ -29729,6 +29875,66 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "libencoderjpeg_jni",
+	owner: "nothing",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: [
+                "proprietary/system_ext/lib64/libencoderjpeg_jni.so"
+            ],
+			shared_libs: [
+                "libnativehelper",
+                "liblog",
+                "libjpeg",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
+	system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libofflineproc_jni",
+    owner: "nothing",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libofflineproc_jni.so",
+            ],
+            shared_libs: [
+                "lib_shim_ntcamera",
+                "libandroid_runtime",
+                "libutils",
+                "libbinder",
+                "libcutils",
+                "liblog",
+                "libui",
+                "libcamera_client",
+                "libvndksupport",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libdiag_system",
     owner: "nothing",
     strip: {
@@ -35149,6 +35355,7 @@ cc_prebuilt_binary {
                 "libwfdconfigutils",
                 "libhidlbase",
                 "libavservices_minijail",
+                "libwfdservice_shim",
                 "libc++",
                 "libc",
                 "libm",
